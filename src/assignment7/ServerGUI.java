@@ -2,35 +2,47 @@ package assignment7;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class ServerGUI extends Application {
+	public static Label serverLabel;
 	
-	
-	public ServerGUI() {
-		
+	public static void startDisplay() {
+		ServerGUI serverWindow = new ServerGUI();
+		Stage serverStage = new Stage();
+		serverWindow.start(serverStage);
 	}
 	
 	
-	public void start(Stage primaryStage) {
+	@Override
+	public void start(Stage serverStage) {
 	
-		primaryStage.setTitle("Message Server");
-		Pane root = new Pane();
+		serverStage.setTitle("Server Analysis"); 
+		
+		GridPane root = new GridPane();
 		root.setPadding(new Insets(10, 20, 10, 20));
 		
-		root.setBackground(new Background(new BackgroundFill(Color.LAVENDER, CornerRadii.EMPTY, Insets.EMPTY)));
-		Scene scene = new Scene(root, 300, 500, Color.CORAL);
+		root.setBackground(new Background(new BackgroundFill(Color.LAWNGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
 		
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		Label serverOutput = new Label("Server Analysis: ");
+		serverLabel = serverOutput;
+		root.add(serverLabel, 0, 1);
+		serverLabel.setFont(Font.font("Tahoman", FontWeight.NORMAL, 20));
+		serverLabel.setAlignment(Pos.CENTER);
 		
 		
+		Scene scene = new Scene(root, 300, 500, Color.ALICEBLUE);
+		serverStage.setScene(scene);
+		serverStage.show();
 	}
-	
 }
