@@ -36,9 +36,10 @@ public class ServerGUI extends Application {
 		
 		Label serverOutput = new Label("Server Analysis: ");
 		serverLabel = serverOutput;
-		root.add(serverLabel, 0, 1);
+		serverLabel.setText(serverLabel.getText() + "\n Port: " + ServerMain.serverPort + "\n");;
+		root.getChildren().add(serverLabel);
 		serverLabel.setFont(Font.font("Tahoman", FontWeight.NORMAL, 20));
-		serverLabel.setAlignment(Pos.CENTER);
+		root.setAlignment(Pos.TOP_CENTER);
 		
 		
 		Scene scene = new Scene(root, 300, 500, Color.ALICEBLUE);
